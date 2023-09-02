@@ -5,12 +5,13 @@
   "author": "Francisco Medinilla García",
   "scripts": {
     "dev": "astro dev",
-    "start": "servor dist/",
+    "start": "npx servor dist",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.0.7"
+    "astro": "3.0.7",
+    "servor": "4.0.2"
   }
 }
