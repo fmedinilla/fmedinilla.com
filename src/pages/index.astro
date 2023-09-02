@@ -1,22 +1,17 @@
 ---
+import TextGradient from "../components/TextGradient.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="fmedinilla">
 	<main>
-		<h1 class="text-gradient">fmedinilla</h1>
+		<h1>
+			<TextGradient>fmedinilla</TextGradient>
+		</h1>
 	</main>
 </Layout>
 
 <style>
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-
 	main {
 		display: grid;
 		place-items: center;
