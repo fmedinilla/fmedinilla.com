@@ -4,21 +4,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="fmedinilla">
-	<main>
-		<h1>
-			<TextGradient>fmedinilla</TextGradient>
-		</h1>
+	<main class="main">
+		<h1 class="main__h1"><TextGradient>fmedinilla</TextGradient></h1>
 	</main>
 </Layout>
 
 <style>
-	main {
+	.main {
 		display: grid;
 		place-items: center;
 		height: 100%;
 	}
 
-	h1 {
+	.main__h1 {
 		color: #ddd;
 		font-size: 5em;
 		text-align: center;
