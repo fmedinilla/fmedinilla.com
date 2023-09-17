@@ -1,0 +1,19 @@
+---
+const { n } = Astro.props;
+---
+
+<div class="grid" data-elements={n}>
+    <slot />
+</div>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .grid[data-elements="1"] {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+</style>

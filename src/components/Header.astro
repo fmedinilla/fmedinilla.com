@@ -1,0 +1,37 @@
+<header class="header">
+    <picture class="header__picture">
+        <a href="/">
+            <img
+                class="header__img"
+                src="/images/logo.svg"
+                alt="Icono fmedinilla"
+            /></a
+        >
+    </picture>
+
+    <nav class="header__nav">
+        <ul class="header__ul">
+            <slot name="links" />
+        </ul>
+    </nav>
+</header>
+
+<style>
+    .header {
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header__picture {
+        width: 64px;
+        height: 64px;
+    }
+    .header__img {
+        aspect-ratio: 1/1;
+    }
+    .header__ul {
+        display: flex;
+        gap: 1rem;
+    }
+</style>

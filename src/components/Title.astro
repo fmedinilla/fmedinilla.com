@@ -1,0 +1,44 @@
+---
+const { id } = Astro.props;
+---
+
+<div id={id} class="title">
+    <h2 class="title__h2"><slot /></h2>
+</div>
+
+<style>
+    .title {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        padding-top: 2rem;
+    }
+    .title__h2 {
+        font-size: 2em;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        margin: 0 auto;
+        position: relative;
+        text-transform: uppercase;
+        color: var(--main-color);
+    }
+
+    .title__h2::before,
+    .title__h2::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-top: 5px solid var(--main-color);
+        border-left: 5px solid var(--main-color);
+    }
+
+    .title__h2::before {
+        top: 0;
+        left: 0;
+    }
+    .title__h2::after {
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+    }
+</style>

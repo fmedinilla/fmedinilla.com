@@ -1,25 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TextGradient from "../components/TextGradient.astro";
+import Title from "../components/Title.astro";
+import Grid from "../components/Grid.astro";
+import Project from "../components/Project.astro";
+import Button from "../components/Button.astro";
+import Contact from "../components/Contact.astro";
+import Space from "../components/Space.astro";
+import NoProject from "../components/NoProject.astro";
+
+import { projects, noProjects, numProjects } from "../data/projects";
 ---
 
-<Layout title="fmedinilla">
-	<main class="main">
-		<h1 class="main__h1"><TextGradient>fmedinilla</TextGradient></h1>
-	</main>
+<Layout title="fmedinilla | Página principal">
+    <h1 id="aboutme">
+        <span>Hola,</span>Soy<span class="colored">Francisco Medinilla.</span>
+    </h1>
+
+    <p>
+        Ingeniero informático especializado en el desarrollo de software de
+        calidad, aplicando buenas técnicas de programación y haciendo un código
+        mantenible, legible y testeable.
+    </p>
+
+    <Title id="projects">Proyectos</Title>
+
+    {noProjects && <NoProject />}
+
+    {
+        !noProjects && (
+            <Grid n={numProjects}>
+                {projects
+                    .filter((p) => p.primary)
+                    .map(({ name, img, techs, page }) => (
+                        <Project
+                            name={name}
+                            img={img}
+                            techs={techs}
+                            page={page}
+                        />
+                    ))}
+            </Grid>
+        )
+    }
+
+    {
+        numProjects > 4 && (
+            <div class="buttons">
+                <Button to="/projects/index.html">Ver todos</Button>
+            </div>
+        )
+    }
+
+    <Title id="contact">Contacto</Title>
+    <Contact />
+
+    <Space />
 </Layout>
 
 <style>
-	.main {
-		display: grid;
-		place-items: center;
-		height: 100%;
-	}
+    h1 {
+        font-weight: normal;
+        margin-top: 3rem;
+        font-size: 3em;
+    }
 
-	.main__h1 {
-		color: #ddd;
-		font-size: 5em;
-		text-align: center;
-		padding: 2rem;
-	}
+    h1 span:first-child {
+        display: block;
+    }
+
+    h1 span:not(:first-child) {
+        font-weight: bold;
+        margin-left: 0.5rem;
+    }
+
+    p {
+        margin-top: 2rem;
+        line-height: 1.4rem;
+    }
+
+    .buttons {
+        width: 30%;
+        margin: 2rem auto;
+    }
+    .colored {
+        color: var(--main-color);
+    }
 </style>

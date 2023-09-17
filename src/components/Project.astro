@@ -1,0 +1,70 @@
+---
+const { name, img, techs, page } = Astro.props;
+---
+
+<a class="project" target="_blank" href={page}>
+    <img class="project__img" src={img} alt={`Imagen del projecto ${name}`} />
+
+    <h3 class="project__h3">{name}</h3>
+    <div class="project__techs">
+        {techs.map((tech) => <span class="project__tech">{tech}</span>)}
+    </div>
+</a>
+
+<style>
+    .project {
+        position: relative;
+        transition: transform 200ms ease-in-out;
+    }
+    .project:hover {
+        transform: scale(1.05);
+    }
+    .project__img {
+        aspect-ratio: 16/9;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+    .project::before {
+        content: "";
+        position: absolute;
+        background-color: hsla(0, 0%, 0%, 60%);
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .project__h3 {
+        background-color: hsla(0, 0%, 0%, 60%);
+        color: hsl(0, 0%, 100%);
+        border-radius: 4px;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        right: 20%;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 1em;
+        letter-spacing: 2px;
+        word-spacing: 5px;
+        line-height: 1.4rem;
+    }
+    .project__techs {
+        position: absolute;
+        padding: 0.5rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 2px solid var(--main-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .project__tech {
+        font-size: 0.8em;
+        background-color: hsla(30, 100%, 60%, 30%);
+        border-radius: 4px;
+        color: hsl(0, 0%, 100%);
+        padding: 0.1rem 0.2rem;
+    }
+</style>

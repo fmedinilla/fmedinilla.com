@@ -1,0 +1,63 @@
+---
+const social = [
+    {
+        name: "Linkedin",
+        img: "/images/linkedin.svg",
+        link: "https://linkedin.com/in/fmedinillagar",
+    },
+    {
+        name: "Github",
+        img: "/images/github.svg",
+        link: "https://github.com/fmedinilla",
+    },
+    {
+        name: "Instagram",
+        img: "/images/instagram.svg",
+        link: "https://instagram.com/_fmedinilla",
+    },
+    {
+        name: "Twitter",
+        img: "/images/twitter.svg",
+        link: "https://twitter.com/_fmedinilla",
+    },
+];
+---
+
+<footer class="footer">
+    {
+        social.map(({ name, img, link }) => (
+            <a class="footer__social" target="_blank" href={link}>
+                <img class="footer__img" src={img} alt={name} />
+            </a>
+        ))
+    }
+</footer>
+
+<style>
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+        border-top: 1px solid hsl(0, 0%, 70%);
+        padding: 1rem 2rem;
+    }
+
+    .footer__a {
+        margin-right: auto;
+        color: #ccc;
+        font-size: 0.8em;
+    }
+    .footer__a:hover {
+        margin-right: auto;
+        color: #999;
+        font-size: 0.8em;
+    }
+
+    .footer__social {
+        width: 32px;
+    }
+
+    .footer__img {
+    }
+</style>
