@@ -44,4 +44,10 @@ const { to } = Astro.props;
         --h: 15px;
         --b: 3px;
     }
+
+    @media (width < 480px) {
+        .header__a {
+            padding: 0.5rem 1rem;
+        }
+    }
 </style>

@@ -34,4 +34,18 @@
         display: flex;
         gap: 1rem;
     }
+
+    @media (width < 480px) {
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header__ul {
+            display: flex;
+        }
+    }
 </style>
