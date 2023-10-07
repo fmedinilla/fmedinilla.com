@@ -1,97 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Title from "../components/Title.astro";
-import Grid from "../components/Grid.astro";
-import Project from "../components/Project.astro";
-import Button from "../components/Button.astro";
-import Contact from "../components/Contact.astro";
-import Space from "../components/Space.astro";
-import NoProject from "../components/NoProject.astro";
-
-import { projects, noProjects, numProjects } from "../data/projects";
-
-const message =
-    "Ingeniero informático especializado en el desarrollo de software de calidad, aplicando buenas técnicas de programación y haciendo un código mantenible, legible y testeable.";
+import Container from "../components/Container.astro";
+import Aboutme from "../sections/aboutme.astro";
+import Projects from "../sections/projects.astro";
 ---
 
 <Layout title="fmedinilla | Página principal">
-    <h1 id="aboutme">
-        <span>Hola,</span>Soy<span class="colored">Francisco Medinilla.</span>
-    </h1>
-
-    <p>
-        Estudiante de ingeniería informática y apasionado por el desarrollo de
-        software, aplicando buenas técnicas de programación y haciendo un código
-        mantenible, legible y testeble.
-    </p>
-
-    <Title id="projects">Proyectos</Title>
-
-    {noProjects && <NoProject />}
-
-    {
-        !noProjects && (
-            <Grid n={numProjects}>
-                {projects
-                    .filter((p) => p.primary)
-                    .map(({ name, img, techs, page }) => (
-                        <Project
-                            name={name}
-                            img={img}
-                            techs={techs}
-                            page={page}
-                        />
-                    ))}
-            </Grid>
-        )
-    }
-
-    {
-        numProjects > 4 && (
-            <div class="buttons">
-                <Button to="/projects/index.html">Ver todos</Button>
-            </div>
-        )
-    }
-
-    <Title id="contact">Contacto</Title>
-    <Contact />
-
-    <Space />
+    <Container>
+        <Aboutme />
+        <Projects />
+    </Container>
 </Layout>
 
-<style>
-    h1 {
-        font-weight: normal;
-        margin-top: 3rem;
-        font-size: 3em;
-    }
-
-    h1 span:first-child {
-        display: block;
-    }
-
-    h1 span:not(:first-child) {
-        font-weight: bold;
-        margin-left: 0.5rem;
-    }
-
-    p {
-        margin-top: 2rem;
-        line-height: 1.4rem;
-    }
-
-    .buttons {
-        width: 30%;
-        margin: 2rem auto;
-    }
-    .colored {
-        color: var(--main-color);
-    }
-
-    @media (width < 480px) {
-        h1 {
-            font-size: 1.7em;
-        }
-    }
-</style>
+<style></style>

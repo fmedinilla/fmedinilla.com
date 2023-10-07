@@ -1,0 +1,88 @@
+---
+import Section from "../components/Section.astro";
+
+const messages = [
+    "Estudiante de ingeniería informática y apasionado por el desarrollo de software, aplicando buenas técnicas de programación y haciendo un código mantenible, legible y testeble.",
+    "Ingeniero informático especializado en el desarrollo de software de calidad, aplicando buenas técnicas de programación y haciendo un código mantenible, legible y testeable.",
+];
+---
+
+<Section title="¿Quién soy?">
+    <div class="text-image">
+        <section class="text">
+            <p class="text__greeting">Hola, soy</p>
+            <p class="text__name">Francisco Medinilla.</p>
+        </section>
+
+        <picture class="image__picture">
+            <img
+                class="text-image__img"
+                src="images/placeholder.png"
+                alt="foto de francisco medinilla"
+            />
+        </picture>
+    </div>
+
+    <p class="message">{messages[0]}</p>
+</Section>
+
+<style>
+    .text-image {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+    .text {
+    }
+    .text__greeting {
+        font-size: 1.9em;
+    }
+    .text__name {
+        color: var(--main-color);
+        font-weight: 700;
+        font-size: 3em;
+    }
+    .image__picture {
+        display: block;
+        width: 40%;
+        filter: drop-shadow(0px 0px 5px hsla(0, 0%, 0%, 50%));
+        transition: all 0.3s ease-in-out;
+    }
+    .image__picture:hover {
+        filter: drop-shadow(0px 0px 10px hsla(20, 100%, 60%, 100%));
+    }
+    .text-image__img {
+        aspect-ratio: 1/1;
+        border-radius: 68% 32% 41% 59% / 44% 34% 66% 56%;
+        object-fit: cover;
+    }
+    .message {
+    }
+
+    @media screen and (width < 768px) {
+        .text-image {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .text {
+            order: 1;
+        }
+
+        .image__picture {
+            width: 70%;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+        .text__greeting {
+            font-size: 1.5em;
+        }
+        .text__name {
+            font-size: 2em;
+        }
+    }
+</style>

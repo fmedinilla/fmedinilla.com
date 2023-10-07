@@ -1,0 +1,29 @@
+---
+const { title } = Astro.props;
+---
+
+<section class="section">
+    <h2 class="section__h2">{title}</h2>
+    <slot />
+</section>
+
+<style>
+    .section {
+        margin-bottom: 2rem;
+    }
+
+    .section__h2 {
+        font-family: "Carter One", cursive;
+        letter-spacing: 3px;
+        margin-bottom: 0.75rem;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: var(--main-color);
+        /*border-bottom: 5px solid var(--main-color);*/
+        border-radius: 16px;
+        padding-bottom: 0.75rem;
+        box-shadow: 0px 3px 5px hsla(0, 0%, 0%, 30%);
+        padding: 1rem;
+        text-align: center;
+    }
+</style>
