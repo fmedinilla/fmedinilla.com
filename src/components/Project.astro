@@ -1,0 +1,66 @@
+---
+const { id, name, img, techs, page, primary } = Astro.props;
+---
+
+<article class="project">
+    <picture class="project__picture">
+        <img
+            class="project__img"
+            src={img}
+            alt={`Imagen del proyecto: ${name}`}
+        />
+
+        <h3 class="project__h3" class="project__h3">{name}</h3>
+
+        <div class="tech-list">
+            {techs.map((t) => <span class="tech">{t}</span>)}
+        </div>
+    </picture>
+</article>
+
+<style>
+    .project {
+        border: 1px solid #ccc;
+        border-radius: 9px;
+    }
+
+    .project__picture {
+        position: relative;
+    }
+
+    .project__h3 {
+        background-color: hsl(0, 0%, 0%, 80%);
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        color: hsl(0, 0%, 100%);
+
+        position: absolute;
+        top: 20%;
+        left: 0;
+    }
+
+    .project__picture {
+    }
+
+    .project__img {
+        border-radius: 8px;
+    }
+
+    .tech-list {
+        padding: 0.5rem;
+        font-size: 0.8em;
+        display: flex;
+        gap: 0.5rem;
+
+        position: absolute;
+        bottom: 0;
+    }
+
+    .tech {
+        background-color: hsla(0, 0%, 0%, 60%);
+        padding: 0.5rem;
+        border-radius: 8px;
+        color: hsl(0, 0%, 100%);
+    }
+</style>

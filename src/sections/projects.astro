@@ -1,11 +1,26 @@
 ---
 import Section from "../components/Section.astro";
+import Project from "../components/Project.astro";
+
+import { projects, numProjects, noProjects } from "../data/projects";
 ---
 
 <Section title="¿Qué he hecho?">
-    <p class="p">
-        Actualmente estoy trabajando en mi primer proyecto. ¡Gracias!
-    </p>
+    {
+        noProjects && (
+            <p class="p">
+                Actualmente estoy trabajando en mi primer proyecto. ¡Gracias!
+            </p>
+        )
+    }
+
+    <section class="projects" data-num={numProjects}>
+        {
+            projects.map((p) => (
+                <Project name={p.name} img={p.img} techs={p.techs} />
+            ))
+        }
+    </section>
 </Section>
 
 <style>
@@ -21,5 +36,22 @@ import Section from "../components/Section.astro";
         border-radius: 8px;
         padding: 1rem;
         background-color: hsla(0, 0%, 80%);
+    }
+
+    .projects {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects:where([data-num="1"]) {
+        grid-template-columns: 600px;
+        place-content: center;
+    }
+
+    @media screen and (width < 768px) {
+        .projects {
+            grid-template-columns: 1fr;
+        }
     }
 </style>

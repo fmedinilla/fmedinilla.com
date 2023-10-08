@@ -8,6 +8,7 @@
         primary: bool
 */
 
-export const projects = [];
+export const projects = [
+];
 export const numProjects = projects.length;
 export const noProjects = projects.length === 0;
